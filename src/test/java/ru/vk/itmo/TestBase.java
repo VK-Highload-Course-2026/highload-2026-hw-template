@@ -27,7 +27,15 @@ public abstract class TestBase {
         return result;
     }
 
+    protected void waitForVersionAdvancement() throws Exception {
+        long ms = System.currentTimeMillis();
+        while (ms == System.currentTimeMillis()) {
+            Thread.sleep(1);
+        }
+    }
+
     protected static byte[] randomValue() {
         return randomBytes(VALUE_LENGTH);
     }
 }
+
